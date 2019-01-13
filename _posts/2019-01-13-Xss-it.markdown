@@ -1,43 +1,45 @@
 ---
-title: XSSing Admin for FUN
+title: ACCESS CONTROL TO STORED XSS LIKE A BOSS
 description: Fun and Hacks
 categories: blog
 ---
 
-I will be covering a story of a bug I found in a private program. As a result of improper access control, an organisation staff with no write permission was able to xss the Admin and owner of the organisation! Surreal, isn't it?. Reading your mind, I guess you are asking "How"
+I will be covering a story of a bug I found in a private program. As a result of improper access control, an organisation staff with no write permission was able to maliciouly run javascript code which could be used to XSS the Admins and owner of the organisation! Surreal, isn't it?. Reading your mind, I guess you are asking #"How?"
 
-Hi, I am Yusuf Yazir. Follow me as I take you through this short and pleasant journey of David and Goaliath.
+Hi, I am Yusuf Yazir. Follow me as I take you through this short and pleasant journey
 
 ## INTRODUCTION:
 
-For the sake of privacy, let's call this website example.com. On example.com, whenever the owner of the organisation registers, he gets a subdomain similar to the name of his organisation. For example, Org name is Hacklad, we will get Hacklad.example.com. Nice name, isn't it? :) Thanks Thanks. However, the owner could add admins, manager, staff.
+For the sake of privacy, let's call this website example.com. On example.com, whenever the owner of the organisation registers, he gets a subdomain similar to the name of his organisation. For example, Org name is Hacklad, we will get Hacklad.example.com. Hacklad! Nice name, isn't it? :) Thanks Thanks. However, the owner could add admins, manager, staff etc...
 
 
 Role | Permission
-Owner | Read, Write, Add others abd edit settings
+Owner | Read, Write, edit settings
 Admin | Read and write only
 Staff | Read only
 
 Browser | Role
-Chrome | Owner (Goliath)
+Chrome | Owner 
 Firefox | Admin
-Firefox | Staff (David)
+Firefox | Staff
 
 ## SELF XSS (OWNER)
-On the owner account, like most people will do, I added my XSS payload "<img src=x onerror=alert(1)>" when creating a project in the *project name* field. XSS popped, I smiled, grabbed a cup of water. Logged In quickly into the Admin browser(Firefox), Guess what? NO XSS on project name.. Whoops! 
 
-				GIF
-I tried creating project with Admin but sadly it was blocked! My heart started palpitating, I felt worse and disappointed!  
+On the owner account, like most people will do, I added my XSS payload "<img src=x onerror=alert(1)>" when creating a project in the *project name* field. XSS popped, I smiled, grabbed a cup of water. Logged In quickly into the Admin browser(Firefox), Guess what? NO XSS on project name.. Whoops!
+
+			GIF
+I tried creating project with Admin but sadly it was blocked because Admin can't create project! My heart started palpitating, I felt worse and disappointed!  
 
 
 ## INSPIRATION: 
-Normally when I am in a situation like this, I go checkup some of my chats with Elite Hackers on Twitter just to get myself backup. I was scrolling through Nahamsec's Chat and I saw this... Whooot? 
 
-
+Normally when I am in a situation like this, I go checkup some of my chats with Elite Hackers on Twitter just to get myself up and running again. I was scrolling through Nahamsec's Chat and I saw this... Whooot? 
+IMAGE
 
 ## Access Control
+
 I took enough time to understand the flow of the application. Then I started creating another project with the owner, on landing on the create page I noticed the url ```hacklad.example.com/add/new/project```. Changed my browser to where the staff is logged In, and I tried accessing this URL and suprisingly I saw a staff with no write could actually create project.. How? I don't care.. I added my XSS payload "<img src=z onerror=alert(9)>" in the project field and NO XSS! Another Heartbreak! It is time to give up having in mind to submit this permission issue, I closed the staff browser and I was about closing the Admin, I decided to reload and on doing that, I saw 9, Yes XSS POPPED! WOOOOOW! 
 
 
-
+Shotout to @1 and @2 for their support!
 
