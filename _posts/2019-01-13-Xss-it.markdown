@@ -27,7 +27,7 @@ Firefox | Staff
 
 On the owner account, like most people will do, I added my XSS payload `<img src=x onerror=alert(1)>` when creating a project in the *project name* field. XSS popped, I smiled, grabbed a cup of water. Logged In quickly into the Admin browser(Firefox), Guess what? NO XSS on project name.. Whoops!
 
-![yooo](/images/yooo.gif)
+![cry](/images/cry.mp4)
 
 I tried creating project with Admin so that I can XSS the owner but sadly it was blocked because Admin can't create project! I felt bad and disappointed, My hopes were shattered!!!
 
@@ -45,6 +45,9 @@ I took enough time to understand the flow of the application. Then I started cre
 
 I added my XSS payload `<img src=z onerror=alert(9)>` in the project field and NO XSS! Another Heartbreak! It is time to give up having in mind to submit this permission issue, I closed the staff browser and I was about closing the Admin, I decided to reload and on doing that, I saw 9, Yes XSS POPPED! WOOOOOW! 
 
+![happy](/images/happy.mp4)
+
+I submitted it immediately and a nice bounty was awarded... 
 
 Shotout to my friends [Stefano][twitter.com/stefanohablando] [Justin Gradner][twitter.com/Rhynorater] and [Sawzeey][twitter.com/_sawzeeyy] for their support!
 
