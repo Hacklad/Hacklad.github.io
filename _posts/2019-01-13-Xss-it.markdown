@@ -36,7 +36,7 @@ Normally when I am in a situation like this, I go checkup some of my chats with 
 
 ![Nahamsec](/images/nahamsec.png)
 
-## Access Control
+## Access Control:
 
 I took enough time to understand the flow of the application. Then I started creating another project with the owner, on landing on the create project page I noticed the url ```https://hacklad.example.com/add/new/project```. I immediately changed my browser to the staff's browser, and I tried accessing this URL(```https://hacklad.example.com/add/new/project```) directly and suprisingly I saw a staff with no write could actually create project.. How?? I don't care..
 
@@ -45,13 +45,14 @@ I added my XSS payload `<img src=z onerror=alert(9)>` in the project field and N
 
 I raised a ticket immediately... Fixed and Bounty awarded few days later.
 
-TAKEAWAY:
+## TAKEAWAY:
 
 1. A user without write permission was table to XSS the owner of the Organisation
 2. Try the imposssible, that's the only way amazing things happen
 3. Be with people better than you and you'd be suprised how well you will improve
 
+Thanks for reading!
 
 
-Shotout to my friends [Stefano](twitter.com/stefanohablando) [Justin Gradner](twitter.com/Rhynorater) and [Sawzeey](twitter.com/_sawzeeyy) for their support!
+Shotout to my friends [Stefano](twitter.com/stefanohablando), [Justin Gradner](twitter.com/Rhynorater) and [Sawzeey](twitter.com/_sawzeeyy) for their support!
 
