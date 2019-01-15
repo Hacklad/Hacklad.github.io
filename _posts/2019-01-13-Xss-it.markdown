@@ -38,8 +38,11 @@ Normally when I am in a situation like this, I go checkup some of my chats with 
 
 ## Access Control
 
-I took enough time to understand the flow of the application. Then I started creating another project with the owner, on landing on the create page I noticed the url ```https://hacklad.example.com/add/new/project```. Changed my browser to where the staff is logged In, and I tried accessing this URL and suprisingly I saw a staff with no write could actually create project.. How? I don't care.. I added my XSS payload `<img src=z onerror=alert(9)>` in the project field and NO XSS! Another Heartbreak! It is time to give up having in mind to submit this permission issue, I closed the staff browser and I was about closing the Admin, I decided to reload and on doing that, I saw 9, Yes XSS POPPED! WOOOOOW! 
+I took enough time to understand the flow of the application. Then I started creating another project with the owner, on landing on the create project page I noticed the url ```https://hacklad.example.com/add/new/project```. I immediately changed my browser to the staff's browser, and I tried accessing this URL(```https://hacklad.example.com/add/new/project```) directly and suprisingly I saw a staff with no write could actually create project.. How?? I don't care..
 
 
-Shotout to @Stefano and JUstin@Rhynaroter for their support!
+I added my XSS payload `<img src=z onerror=alert(9)>` in the project field and NO XSS! Another Heartbreak! It is time to give up having in mind to submit this permission issue, I closed the staff browser and I was about closing the Admin, I decided to reload and on doing that, I saw 9, Yes XSS POPPED! WOOOOOW! 
+
+
+Shotout to my friends [Stefano][twitter.com/stefanohablando] [Justin Gradner][twitter.com/Rhynorater] and [Sawzeey][twitter.com/_sawzeeyy] for their support!
 
