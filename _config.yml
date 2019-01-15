@@ -16,7 +16,8 @@
 title: Hacklad's Blog
 email: Hackladsec@yahoo.com
 description: >- # this means to ignore newlines until "baseurl:"
-  I find Bugs in websites and mobile application, report them and do my writeups here. I post CTFs related stuffs too
+  I find Bugs in websites and mobile application, report them and do my writeups here. I post CTFs related stuffs too.
+  Bug Bounty | CTFs |  Python
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: Hacklad
