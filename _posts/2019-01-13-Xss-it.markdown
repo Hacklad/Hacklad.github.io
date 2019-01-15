@@ -3,6 +3,7 @@ title: ACCESS CONTROL TO STORED XSS LIKE A BOSS
 description: Fun and Hacks
 categories: blog
 ---
+![xss](/images/xss.png)
 
 I will be covering a story of a bug I found in a private program. As a result of improper access control, an organisation staff with no write permission was able to maliciouly run javascript code which could be used to XSS the owner of the organisation! Surreal, isn't it?. Reading your mind, I guess you are asking *"How?"*
 
