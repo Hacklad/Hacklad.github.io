@@ -27,8 +27,6 @@ Firefox | Staff
 
 On the owner account, like most people will do, I added my XSS payload `<img src=x onerror=alert(1)>` when creating a project in the *project name* field. XSS popped, I smiled, grabbed a cup of water. Logged In quickly into the Admin browser(Firefox), Guess what? NO XSS on project name.. Whoops!
 
-![cry](/images/cry.jpg)
-
 I tried creating project with Admin so that I can XSS the owner but sadly it was blocked because Admin can't create project! I felt bad and disappointed, My hopes were shattered!!!
 
 
@@ -43,10 +41,17 @@ Normally when I am in a situation like this, I go checkup some of my chats with 
 I took enough time to understand the flow of the application. Then I started creating another project with the owner, on landing on the create project page I noticed the url ```https://hacklad.example.com/add/new/project```. I immediately changed my browser to the staff's browser, and I tried accessing this URL(```https://hacklad.example.com/add/new/project```) directly and suprisingly I saw a staff with no write could actually create project.. How?? I don't care..
 
 
-I added my XSS payload `<img src=z onerror=alert(9)>` in the project field and NO XSS! Another Heartbreak! It is time to give up having in mind to submit this permission issue, I closed the staff browser and I was about closing the Admin, I decided to reload and on doing that, I saw 9, Yes XSS POPPED! WOOOOOW! 
+I added my XSS payload `<img src=z onerror=alert(9)>` in the project field and NO XSS! Another Heartbreak! It is time to give up having in mind to submit this permission issue, I closed the staff browser and I was about closing the Admin, I decided to reload and on doing that, I saw 9, Yes XSS POPPED up!
 
-![bosss](/images/bosss.jpeg)
-I submitted it immediately and a nice bounty was awarded... 
+I raised a ticket immediately... Fixed and Bounty awarded few days later.
 
-Shotout to my friends [Stefano][twitter.com/stefanohablando] [Justin Gradner][twitter.com/Rhynorater] and [Sawzeey][twitter.com/_sawzeeyy] for their support!
+TAKEAWAY:
+
+1. A user without write permission was table to XSS the owner of the Organisation
+2. Try the imposssible, that's the only way amazing things happen
+3. Be with people better than you and you'd be suprised how well you will improve
+
+
+
+Shotout to my friends [Stefano](twitter.com/stefanohablando) [Justin Gradner](twitter.com/Rhynorater) and [Sawzeey](twitter.com/_sawzeeyy) for their support!
 
