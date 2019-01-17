@@ -1,11 +1,11 @@
 ---
-title: ACCESS CONTROL TO STORED XSS LIKE A BOSS
+title: TURNING SELF XSS TO GOOD XSS VIA ACCESS CONTROL
 description: Fun and Hacks
 categories: blog
 ---
 ![xss](/images/xss.png)
 
-I will be covering a story of a bug I found in a private program. As a result of improper access control, an organisation staff with no write permission was able to maliciouly run javascript code which could be used to XSS the owner of the organisation! Surreal, isn't it?. Reading your mind, I guess you are asking *"How?"*
+I will be covering a story of a bug I found in a private program. Access control is how a web application grant access to content and functions to some users and not other(OWASP). However, as a result of broken access control, an organisation staff with no write permission was able to maliciouly run javascript code which could be used to XSS the owner of the organisation! Surreal, isn't it?. Reading your mind, I guess you are asking *"How?"*
 
 Hi, I am Yusuf Yazir. Follow me as I take you through this short and pleasant journey.
 
@@ -28,7 +28,7 @@ Firefox | Staff
 
 On the owner account, like most people will do, I added my XSS payload `<img src=x onerror=alert(1)>` when creating a project in the *project name* field. XSS popped, I smiled, grabbed a cup of water. Logged In quickly into the Admin browser(Firefox), Guess what? NO XSS on the Admin page.. Whoops, I couldn't cry! 
 
-I tried creating project with Admin so that I can XSS the owner but sadly there were no feautures like that for admin! I felt bad and disappointed, My hopes were shattered!!! Needed Motivation to continue!...
+I tried creating project with Admin so that I can XSS the owner but sadly there were no features like that for the admin account! I felt bad and disappointed, My hopes were shattered!!! Needed Motivation to continue!...
 
 
 ## INSPIRATION: 
@@ -41,16 +41,20 @@ Normally when I am in a situation like this, I go checkup some of my chats with 
 
 I took enough time to understand the flow of the application. Then I started creating another project with the owner, on landing on the create project page I noticed the url ```https://hacklad.example.com/add/new/project```. I immediately changed my browser to the staff's browser, and I tried accessing this URL(```https://hacklad.example.com/add/new/project```) directly and suprisingly I saw a staff with no write could actually create project.. How?? I don't care..
 
+## STORED XSS:
 
-I added my XSS payload `<img src=z onerror=alert(9)>` in the project field and NO XSS! Another Heartbreak! It is time to give up having in mind to submit this permission issue, I closed the staff browser and I was about closing the Admin, I decided to reload and on doing that, I saw 9, Yes XSS POPPED up!
+I added my XSS payload `<img src=z onerror=alert(9)>` in the project field and NO XSS! Another Heartbreak! It is time to give up having in mind to submit a low severity permission issue, I closed the staff browser and I was about closing the Owner's browser, I decided to reload and on doing that, I saw 9, Yes XSS POPPED up!
 
-I raised a ticket immediately... Fixed and Bounty awarded few days later.
+I raised a ticket immediately. The vulnerability was fixed and Bounty awarded few days later.
+
+The Owner's payload led to self xss but as a result of broken access control, a staff without write permission was able to create a project with a XSS payload, eventually affecting the owner of the organisation. Isn't it a cool story? 
 
 ## TAKEAWAY:
 
 1. A user without write permission was table to XSS the owner of the Organisation
 2. Try the imposssible, that's the only way amazing things happen
 3. Be with people better than you and you'd be suprised how well you will improve
+4. These are the few things we can do with the xss is to "change the write user to an owner. Assuming the owner can promote other people to owner. In that case, it becomes organization takeover because you can promote yourself to owner."
 
 Thanks for reading!
 
