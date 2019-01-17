@@ -6,6 +6,7 @@ categories: blog
 ![xss](/images/xss.png)
 
 I will be covering a story of a bug I found in a private program. Access control is how a web application grant access to content and functions to some users and not other(OWASP). However, as a result of broken access control, an organisation staff with no write permission was able to maliciouly run javascript code which could be used to XSS the owner of the organisation! Surreal, isn't it?. Reading your mind, I guess you are asking *"How?"*
+
 ![forreal](/images/forreal.jpg)
 
 Hi, I am Yusuf Yazir. Follow me as I take you through this short and pleasant journey.
